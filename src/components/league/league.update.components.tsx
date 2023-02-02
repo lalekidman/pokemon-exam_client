@@ -2,6 +2,7 @@ import { FieldValues, useForm,  } from 'react-hook-form'
 import { useNavigate, useParams } from 'react-router-dom'
 import Http from 'axios'
 import { useEffect, useState } from 'react';
+import { SERVER_BASE_URL } from '../../common/contants';
 const LeagueUpdateComponent = (props: any) => {
   // list of the components?
   const {register, handleSubmit} = useForm()
@@ -17,7 +18,7 @@ const LeagueUpdateComponent = (props: any) => {
   }))
   const onSubmit = (formData: FieldValues) => {
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "PATCH",
       url: `/leagues/${leagueId}`,
       data: formData
@@ -35,7 +36,7 @@ const LeagueUpdateComponent = (props: any) => {
 
   useEffect(() => {
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "GET",
       url: `/leagues/${leagueId}`
     })

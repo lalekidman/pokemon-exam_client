@@ -1,6 +1,7 @@
 import { FieldValues, useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import Http from 'axios'
+import { SERVER_BASE_URL } from '../../common/contants';
 const TrainerCreateComponent = (props: any) => {
   // list of the components?
   const {register, handleSubmit} = useForm()
@@ -34,7 +35,7 @@ const TrainerCreateComponent = (props: any) => {
   const onSubmit = (formData: FieldValues) => {
     console.log("formData", formData)
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "POST",
       url: "/pokemons",
       data: {

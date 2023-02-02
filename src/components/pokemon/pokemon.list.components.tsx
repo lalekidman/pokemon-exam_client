@@ -3,6 +3,7 @@ import {
   useNavigate
 } from 'react-router-dom'
 import Http from 'axios'
+import { SERVER_BASE_URL } from '../../common/contants'
 export interface IPokemon {
   id: string
   name: string
@@ -14,7 +15,7 @@ const PokemonCreateComponent = (props: any) => {
   const [pokemons, setPokemons] = useState(() => [])
   useEffect(() => {
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "GET",
       url: "/pokemons"
     })

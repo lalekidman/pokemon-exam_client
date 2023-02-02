@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import Http from 'axios'
 import { useEffect, useState } from 'react';
 import { IPokemon } from '../../pokemon/pokemon.list.components';
+import { SERVER_BASE_URL } from '../../../common/contants';
 
 
 const LeagueSlotCreateComponent = (props: any) => {
@@ -27,7 +28,7 @@ const LeagueSlotCreateComponent = (props: any) => {
   const onSubmit = (formData: FieldValues) => {
     console.log('formData :>> ', formData);
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "POST",
       url: `/leagues/${leagueId}/slots`,
       data: {
@@ -52,7 +53,7 @@ const LeagueSlotCreateComponent = (props: any) => {
   }
   useEffect(() => {
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "GET",
       url: `/pokemons?trainer_id=${trainerId}`
     })

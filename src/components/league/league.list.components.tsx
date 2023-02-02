@@ -3,6 +3,7 @@ import {
   useNavigate
 } from 'react-router-dom'
 import Http from 'axios'
+import { SERVER_BASE_URL } from '../../common/contants'
 interface ILeague {
   id: string
   title: string
@@ -17,7 +18,7 @@ const LeagueListComponent = (props: any) => {
   const [leagues, setLeagues] = useState<ILeague[]>(() => [])
   useEffect(() => {
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "GET",
       url: "/leagues"
     })

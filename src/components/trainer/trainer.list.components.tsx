@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 import Http from 'axios'
 import { FieldValues, useForm,  } from 'react-hook-form'
+import { SERVER_BASE_URL } from '../../common/contants'
 interface ITrainer {
   id: string
   firstName: string
@@ -17,7 +18,7 @@ const TrainerCreateComponent = (props: any) => {
   const [trainers, setTrainer] = useState<ITrainer[]>(() => [])
   useEffect(() => {
     Http({
-      baseURL: "http://localhost:3000/api",
+      baseURL: SERVER_BASE_URL,
       method: "GET",
       url: "/trainers"
     })

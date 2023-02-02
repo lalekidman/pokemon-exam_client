@@ -44,7 +44,9 @@ const LeagueListComponent = (props: any) => {
               Terrain: <label>{league.terrain}</label> <br/>
               Pokemon Max Stats/Attributes: <label>{league.pokemonMaxStats}</label> <br/>
               Required Slot Size: <label>{league.requiredSlotSize}</label> <br/>
-            <button onClick={() => navigate(`/league/${league.id}/edit`)}>Edit</button></li>
+            <button onClick={() => navigate(`/league/${league.id}/edit`)}>Edit</button>
+            <button onClick={() => navigate(`/league/${league.id}/slots`)}>Add Slot</button>
+            </li>
           })
         }
       </ul>

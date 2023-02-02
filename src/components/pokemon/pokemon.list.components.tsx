@@ -3,7 +3,11 @@ import {
   useNavigate
 } from 'react-router-dom'
 import Http from 'axios'
-
+export interface IPokemon {
+  id: string
+  name: string
+  type: string
+}
 const PokemonCreateComponent = (props: any) => {
   // list of the components?
   const navigate = useNavigate()
